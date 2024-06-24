@@ -18,7 +18,11 @@ app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
 })
-
+app.use(cors({
+    origin: ["https://capstone-frontend-kohl.vercel.app/loginLG"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}))
 //routes
 app.use('/api/leads', leadRoutes)
 app.use('/api/userLG', userLGRoutes)
